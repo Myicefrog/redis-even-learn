@@ -8,8 +8,8 @@
 
 void test_connect()
 {
-	unsigned  short port = 4444;
-	char* server_ip = "10.221.161.185";
+	unsigned  short port = 6379;
+	char* server_ip = "192.168.21.130";
 	int sockfd;
 	sockfd = socket(AF_INET,SOCK_STREAM,0);
 	if(sockfd < 0)

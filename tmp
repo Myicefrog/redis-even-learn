@@ -1,0 +1,84 @@
+ae_epoll.c: In function ‘aeApiCreate’:
+ae_epoll.c:41:25: warning: implicit declaration of function ‘zmalloc’ [-Wimplicit-function-declaration]
+     aeApiState *state = zmalloc(sizeof(aeApiState));
+                         ^
+ae_epoll.c:41:25: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+ae_epoll.c:44:19: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+     state->events = zmalloc(sizeof(struct epoll_event)*eventLoop->setsize);
+                   ^
+ae_epoll.c:46:9: warning: implicit declaration of function ‘zfree’ [-Wimplicit-function-declaration]
+         zfree(state);
+         ^
+ae_epoll.c: In function ‘aeApiResize’:
+ae_epoll.c:62:21: warning: implicit declaration of function ‘zrealloc’ [-Wimplicit-function-declaration]
+     state->events = zrealloc(state->events, sizeof(struct epoll_event)*setsize);
+                     ^
+ae_epoll.c:62:19: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+     state->events = zrealloc(state->events, sizeof(struct epoll_event)*setsize);
+                   ^
+ae_epoll.c: In function ‘aeApiFree’:
+ae_epoll.c:69:5: warning: implicit declaration of function ‘close’ [-Wimplicit-function-declaration]
+     close(state->epfd);
+     ^
+server.c: In function ‘listenToPort’:
+server.c:53:11: warning: implicit declaration of function ‘strchr’ [-Wimplicit-function-declaration]
+   else if(strchr(server.bindaddr[j],':'))
+           ^
+server.c:53:11: warning: incompatible implicit declaration of built-in function ‘strchr’
+server.c:53:11: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+server.c: In function ‘initServer’:
+server.c:79:15: warning: implicit declaration of function ‘getpid’ [-Wimplicit-function-declaration]
+  server.pid = getpid();
+               ^
+server.c:87:10: warning: implicit declaration of function ‘exit’ [-Wimplicit-function-declaration]
+          exit(1); 
+          ^
+server.c:87:10: warning: incompatible implicit declaration of built-in function ‘exit’
+server.c:87:10: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+server.c:92:10: warning: implicit declaration of function ‘unlink’ [-Wimplicit-function-declaration]
+          unlink(server.unixsocket); /* don't care if this fails */
+          ^
+server.c:98:15: warning: incompatible implicit declaration of built-in function ‘exit’
+               exit(1);
+               ^
+server.c:98:15: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+server.c:107:10: warning: incompatible implicit declaration of built-in function ‘exit’
+          exit(1);
+          ^
+server.c:107:10: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+server.c: In function ‘beforeSleep’:
+server.c:145:6: warning: implicit declaration of function ‘handleClientsWithPendingWrites’ [-Wimplicit-function-declaration]
+      handleClientsWithPendingWrites();
+      ^
+networking.c: In function ‘writeToClient’:
+networking.c:10:17: warning: implicit declaration of function ‘write’ [-Wimplicit-function-declaration]
+      nwritten = write(fd,c->buf+c->sentlen,c->bufpos-c->sentlen);
+                 ^
+networking.c: In function ‘addReplyError’:
+networking.c:62:31: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+     addReplyErrorLength(c,err,strlen(err));
+                               ^
+networking.c:62:31: warning: incompatible implicit declaration of built-in function ‘strlen’
+networking.c:62:31: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+networking.c: In function ‘readQueryFromClient’:
+networking.c:91:14: warning: implicit declaration of function ‘read’ [-Wimplicit-function-declaration]
+      nread = read(fd, c->querybuf+qblen, readlen);
+              ^
+networking.c: In function ‘createClient’:
+networking.c:98:17: warning: implicit declaration of function ‘zmalloc’ [-Wimplicit-function-declaration]
+     client *c = zmalloc(sizeof(client));
+                 ^
+networking.c:98:17: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+networking.c:110:13: warning: implicit declaration of function ‘close’ [-Wimplicit-function-declaration]
+             close(fd);
+             ^
+networking.c:111:13: warning: implicit declaration of function ‘zfree’ [-Wimplicit-function-declaration]
+             zfree(c);
+             ^
+networking.c: In function ‘acceptCommonHandler’:
+networking.c:150:10: warning: implicit declaration of function ‘serverLog’ [-Wimplicit-function-declaration]
+          serverLog(LL_WARNING,
+          ^
+networking.c:152:15: warning: implicit declaration of function ‘strerror’ [-Wimplicit-function-declaration]
+               strerror(errno),fd);
+               ^
